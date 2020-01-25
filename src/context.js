@@ -9,7 +9,7 @@ class RoomProvider extends Component {
     featuredRooms: [],
     loading: true
   };
-
+  
   //getData
 
   componentDidMount() {
