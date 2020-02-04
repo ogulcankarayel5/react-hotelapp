@@ -42,15 +42,31 @@ export default class SingleRoom extends Component {
       pets,
       images
     } = room;
-    console.log(images);
+    const [mainImg, ...defaultImg] = images;
+    console.log(defaultImg);
     return (
-      <StyledHero img={images[0]}>
-        <Banner title={`${name} room`}>
-          <Link to="/rooms" className="btn-primary">
-            Back to rooms again
-          </Link>
-        </Banner>
-      </StyledHero>
+      <>
+        <StyledHero img={mainImg}>
+          <Banner title={`${name} room`}>
+            <Link to="/rooms" className="btn-primary">
+              Back to rooms again
+            </Link>
+          </Banner>
+        </StyledHero>
+        <section className="single-room">
+          <div className="single-room-images">
+            {defaultImg.map((item, index) => {
+              return <img key={index} src={item} alt={name} />;
+            })}
+          </div>
+          <div className="single-room-info">
+            <article className="desc">
+              <h3>details</h3>
+              <p>{description}</p>
+            </article>
+          </div>
+        </section>
+      </>
     );
   }
 }

@@ -30,6 +30,7 @@ class RoomProvider extends Component {
     return room;
   };
 
+  
   formatData(items) {
     let tempItems = items.map(item => {
       let id = item.sys.id;
@@ -41,6 +42,7 @@ class RoomProvider extends Component {
     return tempItems;
   }
   render() {
+    
     return (
       <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom }}>
         {this.props.children}
